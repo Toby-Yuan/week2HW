@@ -9,3 +9,5 @@
 - table4 : menu - menuId(PK), restaurantId(FK), dishClass, dishName, price
 - table5 : restaurant - restaurantId(PK), restName, restAdress, restPhone
 - table6 : orderDetail - detailId(PK), menuId(FK), demand
+
+![design](./design.jpg)
