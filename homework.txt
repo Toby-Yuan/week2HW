@@ -46,3 +46,7 @@ CREATE TABLE orderDetail(
     menuId int not null,
     demand varchar(50)
 );
+
+-- 想法上出錯，資料表結構修改
+ALTER TABLE orders DROP colume detailId;
+ALTER TABLE detailId ADD orderId int not null;

@@ -3,7 +3,6 @@
 CREATE TABLE orders (
     orderId int auto_increment not null primary key,
     customerId int not null,
-    detailId int not null,
     deliveryId int not null,
     date datetime not null,
     totalPrice int not null
@@ -41,6 +40,7 @@ CREATE TABLE reataurant(
 
 CREATE TABLE orderDetail(
     detailId int auto_increment not null primary key;
+    orderId int not null,
     menuId int not null,
     demand varchar(50)
 );

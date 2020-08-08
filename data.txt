@@ -1,0 +1,24 @@
+// 各個資料表的資料
+// orders
+INSERT INTO orders (customerId, deliveryId, date, totalPrice) VALUES 
+()
+
+// customer
+INSERT INTO customer (companyName, companyPhone, contacts, address) VALUES 
+()
+
+// delivery
+INSERT INTO delivery (deliveryName, deliveryPhone, deliverySex) VALUES 
+()
+
+// menu
+INSERT INTO menu (restaurantId, dishClass, dishName, price) VALUES 
+()
+
+// restaurant
+INSERT INTO restaurant (restName, restAddress, restPhone) VALUES 
+()
+
+// orderDetail
+INSERT INTO orderDetail (orderId, menuId, demand) VALUES 
+()
