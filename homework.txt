@@ -48,5 +48,65 @@ CREATE TABLE orderDetail(
 );
 
 -- 想法上出錯，資料表結構修改
-ALTER TABLE orders DROP colume detailId;
-ALTER TABLE detailId ADD orderId int not null;
+ALTER TABLE orders DROP column detailId;
+ALTER TABLE orderdetail ADD orderId int not null;
+ALTER TABLE orders DROP column totalPrice;
+
+-- 匯入資料
+-- orders
+INSERT INTO orders (customerId, deliveryId, date) VALUES 
+(1, 1, '2020-08-07'),
+(1, 2, '2020-08-07'),
+(2, 3, '2020-08-07'),
+(3, 5, '2020-08-07'),
+(1, 4, '2020-08-06'),
+(2, 2, '2020-08-06'),
+(3, 1, '2020-08-06'),
+(2, 2, '2020-08-05');
+
+-- customer
+INSERT INTO customer (companyName, companyPhone, contacts, address) VALUES 
+('CY network', '041234567', 'Tom', '台中市西屯區朝富路'),
+('FD edu', '047315459', 'Gary', '台中市西屯區市政北二路'),
+('NC netshop', '044561687', 'Jimmy', '台中市西屯區市政北七路');
+
+-- delivery
+INSERT INTO delivery (deliveryName, deliveryPhone, deliverySex) VALUES 
+('Sindy', '0916483255', 'G'),
+('Saber', '0967542113', 'B'),
+('Amber', '0926456157', 'G'),
+('Bob', '0968576322', 'B'),
+('Ellin', '0967545286', 'B');
+
+-- menu
+INSERT INTO menu (restaurantId, dishClass, dishName, price) VALUES 
+(1, 'bendon', '雞腿便當', 75),
+(1, 'bendon', '排骨便當', 70),
+(1, 'bendon', '魯排便當', 70),
+(1, 'bendon', '香腸便當', 60),
+(2, 'noodles', '蛤蜊麵', 80),
+(2, 'noodles', '白醬雞肉麵', 70),
+(2, 'noodles', '台式紅醬麵', 75),
+(3, 'bendon', '日式和菜便當', 90),
+(3, 'bendon', '田園夏日便當', 100),
+(4, 'bendon', '雞腿便當', 90),
+(4, 'fry', '雞腿單點', 45),
+(4, 'bendon', '香腸便當', 70);
+
+-- restaurant
+INSERT INTO reataurant (restName, restAddress, restPhone) VALUES 
+('池上飯包', '台中市西屯區市政北二路', '042685194'),
+('凸點健康盒', '台中市西屯區中港路', '047549547'),
+('響精緻便當', '台中市西屯區逢甲路', '047514842'),
+('巧味雞腿大王', '台中市西屯區福星路', '046587593');
+
+-- orderDetail
+INSERT INTO orderDetail (orderId, menuId, demand) VALUES 
+(1, 1, ),(1, 1, '雞腿要切'),(1, 3, ),(1, 4, '不用切'),
+(2, 8, ''),(2, 8, ''),(2, 9, ''),
+(3, 6, ''),(3, 7, ''),(3, 5, ''),(3, 6, ''),
+(4, 4, ''),(4, 1, ''),(4, 2, ''),(4, 2, ''),
+(5, 11, '不要胡椒粉'),(5, 10, '要切'),(5, 11, ''),
+(6, 10, ''),(6, 10, ''),
+(7, 3, ''),(7, 1, ''),(7, 2, ''),
+(8, 12, ''),(8, 10, '');
