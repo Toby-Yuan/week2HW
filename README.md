@@ -3,8 +3,8 @@
 
 # 規劃
 - database : dibendon
-- table1 : order - orderId(PK), customerId(FK), date, menu(FK), deliveryId(FK), totalPrice
+- table1 : order - orderId(PK), customerId(FK), date, menuId(FK), deliveryId(FK), totalPrice
 - table2 : customer - customerId(PK), companyName, companyPhone, contacts, address
-- table3 : delivery - deliveryId(PK), name, phone, sex
+- table3 : delivery - deliveryId(PK), deliveryName, deliveryPhone, deliverySex
 - table4 : menu - menuId(PK), restaurantId(FK), dishClass, dishName, price
-- table5 : restaurant - restaurantId(PK), restName, restAdress, restPhones 
+- table5 : restaurant - restaurantId(PK), restName, restAdress, restPhone

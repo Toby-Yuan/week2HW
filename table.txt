@@ -1,0 +1,40 @@
+// 各個資料表預想結構
+
+CREATE TABLE order (
+    orderId int auto_increment not null primary key,
+    customerId int not null,
+    menuId int not null,
+    deliveryId int not null,
+    date datetime not null,
+    totalPrice int not null
+);
+
+CREATE TABLE customer(
+    customerId int auto_increment not null primary key,
+    companyName varchar(15) not null,
+    companyPhone char(10) not null,
+    contacts varchar(5),
+    address varchar(50) not null
+);
+
+CREATE TABLE delivery(
+    deliveryId int auto_increment not null primary key,
+    deliveryName varchar(5) not null,
+    deliveryPhone char(10) not null,
+    deliverySex enum('B','G') not null,
+);
+
+CREATE TABLE menu(
+    menuId int auto_increment not null primary key,
+    restaurantId int not null,
+    dishClass enum('noodles','bendon','fry'),
+    dishName varchar(10) not null,
+    price int not null
+);
+
+CREATE TABLE reataurant(
+    restaurantId int auto_increment not null primary key,
+    restName varchar(10) not null,
+    restAddress varchar(50) not null,
+    restPhone char(10) not null
+);
