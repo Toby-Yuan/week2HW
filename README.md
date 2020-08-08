@@ -3,7 +3,7 @@
 
 # 規劃
 - database : dibendon
-- table1 : order - orderId(PK), customerId(FK), date, detailId(FK), deliveryId(FK), totalPrice
+- table1 : orders - orderId(PK), customerId(FK), date, detailId(FK), deliveryId(FK), totalPrice
 - table2 : customer - customerId(PK), companyName, companyPhone, contacts, address
 - table3 : delivery - deliveryId(PK), deliveryName, deliveryPhone, deliverySex
 - table4 : menu - menuId(PK), restaurantId(FK), dishClass, dishName, price
@@ -11,3 +11,5 @@
 - table6 : orderDetail - detailId(PK), menuId(FK), demand
 
 ![design](./design.jpg)
+
+# 測試

@@ -1,5 +1,7 @@
-// 各個資料表預想結構
+CREATE database dinbendon;
+USE dinbendon;
 
+-- 建立資料表
 CREATE TABLE orders (
     orderId int auto_increment not null primary key,
     customerId int not null,
@@ -40,7 +42,7 @@ CREATE TABLE reataurant(
 ); 
 
 CREATE TABLE orderDetail(
-    detailId int auto_increment not null primary key;
+    detailId int auto_increment not null primary key,
     menuId int not null,
     demand varchar(50)
 );
