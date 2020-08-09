@@ -110,3 +110,11 @@ INSERT INTO orderDetail (orderId, menuId, demand) VALUES
 (6, 10, ''),(6, 10, ''),
 (7, 3, ''),(7, 1, ''),(7, 2, ''),
 (8, 12, ''),(8, 10, '');
+
+-- 以下為題目
+-- 題目一:列出各個餐廳在2020-08-07需準備的外送
+SELECT restName, m.dishName, od.orderId, demand FROM reataurant r 
+JOIN menu m ON r.restaurantId = m.restaurantId
+JOIN orderDetail od ON m.menuId = od.menuId
+WHERE orderId IN (SELECT orderId FROM orders WHERE date = '2020-08-07')
+ORDER BY restName;
