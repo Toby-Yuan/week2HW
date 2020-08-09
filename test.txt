@@ -25,3 +25,29 @@ JOIN menu m ON r.restaurantId = m.restaurantId
 JOIN orderDetail od ON m.menuId = od.menuId
 WHERE orderId IN (SELECT orderId FROM orders WHERE date = '2020-08-07')
 ORDER BY restName;
+
+// 列出CY公司於2020-08-07訂便當的總額
+// customer --> orders --> orderDetail --> menu
+SELECT * FROM customer WHERE companyName = 'CY network';
+
+SELECT companyName, o.orderId FROM customer c
+JOIN orders o ON c.customerId = o.customerId
+WHERE companyName = 'CY network' AND date = '2020-08-07';
+
+SELECT companyName, o.orderId, od.menuId FROM customer c
+JOIN orders o ON c.customerId = o.customerId
+JOIN orderDetail od ON o.orderId = od.orderId
+WHERE companyName = 'CY network' AND date = '2020-08-07';
+
+SELECT companyName, o.orderId, od.menuId, price FROM customer c
+JOIN orders o ON c.customerId = o.customerId
+JOIN orderDetail od ON o.orderId = od.orderId
+JOIN menu m ON od.menuId = m.menuId
+WHERE companyName = 'CY network' AND date = '2020-08-07';
+
+SELECT companyName, SUM(price) totalPrice FROM customer c
+JOIN orders o ON c.customerId = o.customerId
+JOIN orderDetail od ON o.orderId = od.orderId
+JOIN menu m ON od.menuId = m.menuId
+GROUP BY companyName
+HAVING companyName = 'CY network' AND o.date = '2020-08-07';

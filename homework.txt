@@ -118,3 +118,5 @@ JOIN menu m ON r.restaurantId = m.restaurantId
 JOIN orderDetail od ON m.menuId = od.menuId
 WHERE orderId IN (SELECT orderId FROM orders WHERE date = '2020-08-07')
 ORDER BY restName;
+
+-- 題目二:
