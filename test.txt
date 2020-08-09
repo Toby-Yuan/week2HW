@@ -1,3 +1,27 @@
 // 自訂題目:
 
-//
+// 列出各個餐廳在2020-08-07需要準備外送的便當
+// reataurant --> menu --> orderId --> orders
+
+SELECT * FROM reataurant WHERE restName = '池上飯包';
+
+SELECT restName, m.dishName FROM reataurant r 
+JOIN menu m ON r.restaurantId = m.restaurantId
+WHERE restName = '池上飯包';
+
+SELECT restName, m.dishName, od.orderId, demand FROM reataurant r 
+JOIN menu m ON r.restaurantId = m.restaurantId
+JOIN orderDetail od ON m.menuId = od.menuId
+WHERE restName = '池上飯包';
+
+SELECT restName, m.dishName, od.orderId, demand FROM reataurant r 
+JOIN menu m ON r.restaurantId = m.restaurantId
+JOIN orderDetail od ON m.menuId = od.menuId
+WHERE restName = '池上飯包' 
+AND orderId IN (SELECT orderId FROM orders WHERE date = '2020-08-07');
+
+SELECT restName, m.dishName, od.orderId, demand FROM reataurant r 
+JOIN menu m ON r.restaurantId = m.restaurantId
+JOIN orderDetail od ON m.menuId = od.menuId
+WHERE orderId IN (SELECT orderId FROM orders WHERE date = '2020-08-07')
+ORDER BY restName;
