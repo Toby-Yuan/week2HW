@@ -1,10 +1,13 @@
 # week2HW
 題目 : 訂便當系統，運用上課所學的！！！
 
-# 繳交檔案
-homework.txt
+# 檔案
+- 作業:homework.txt
+- 資料結構:table.txt
+- 資料:data.txt
+- 題目:test.txt
 
-# 規劃
+# 資料表架構
 - database : dibendon
 - table1 : orders - orderId(PK), customerId(FK), date, deliveryId(FK), totalPrice
 - table2 : customer - customerId(PK), companyName, companyPhone, contacts, address
